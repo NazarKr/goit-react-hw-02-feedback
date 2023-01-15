@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import {
-  FeedbackDiv,
-  ButtonFeedbackGood,
-  ButtonFeedback,
-  FeedbackSpan,
-} from './feedback.styled';
+import { FeedbackDiv } from './feedback.styled';
+import FeedbackOptions from './ButtonsComponents';
+import Statistics from './Statistics'
 
 class Feedback extends Component {
   state = {
@@ -47,35 +44,18 @@ class Feedback extends Component {
   render() {
     return (
       <FeedbackDiv>
-        <h1>Please leave feedback</h1>
-
-        <ButtonFeedbackGood type="button" onClick={this.hendleGoodFeedback}>
-          Good
-        </ButtonFeedbackGood>
-        <ButtonFeedback type="button" onClick={this.hendleNeutalFeedback}>
-          Neutral
-        </ButtonFeedback>
-        <ButtonFeedback primary type="button" onClick={this.hendleBadFeedback}>
-          Bad
-        </ButtonFeedback>
-
-        <h2>Statistics</h2>
-        <p>
-          Good: <FeedbackSpan> {this.state.good} </FeedbackSpan>
-        </p>
-        <p>
-          Neutral: <FeedbackSpan> {this.state.neutral}</FeedbackSpan>
-        </p>
-        <p>
-          Bad: <FeedbackSpan>{this.state.bad} </FeedbackSpan>
-        </p>
-        <p>
-          Total Feedback: <FeedbackSpan>{this.totalFeedback()} </FeedbackSpan>
-        </p>
-        <p>
-          Positive feedback:{' '}
-          <FeedbackSpan>{this.positiveFeedback()} % </FeedbackSpan>
-        </p>
+            <h1>Please leave feedback</h1>
+            <FeedbackOptions
+                options={ }
+                onLeaveFeedback={ }
+            />
+            <Statistics
+                good={this.state.good}
+                neutral={this.state.neutral}
+                bad={this.state.bad}
+                total={this.totalFeedback()}
+                positivePercentage={this.positiveFeedback()}
+            />
       </FeedbackDiv>
     );
   }
