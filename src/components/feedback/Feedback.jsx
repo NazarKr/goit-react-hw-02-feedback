@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { FeedbackDiv, ButtonFeedback } from './feedback.styled';
+import {
+  FeedbackDiv,
+  ButtonFeedbackGood,
+  ButtonFeedback,
+  FeedbackSpan,
+} from './feedback.styled';
 
 class Feedback extends Component {
   state = {
@@ -24,42 +29,53 @@ class Feedback extends Component {
     this.setState(prevState => ({
       bad: prevState.bad + 1,
     }));
-    };
-    
-    totalFeedback = () => {
-        const total = this.state.good + this.state.neutral + this.state.bad;
-        return total;
-    }
+  };
 
-    positiveFeedback = () => {
-        const positive = Math.round(
-          (this.state.good * 100) /
-            (this.state.good + this.state.neutral + this.state.bad)
-        );
-        return positive || '';
-    }
+  totalFeedback = () => {
+    const total = this.state.good + this.state.neutral + this.state.bad;
+    return total;
+  };
+
+  positiveFeedback = () => {
+    const positive = Math.round(
+      (this.state.good * 100) /
+        (this.state.good + this.state.neutral + this.state.bad)
+    );
+    return positive || '';
+  };
 
   render() {
     return (
       <FeedbackDiv>
         <h1>Please leave feedback</h1>
 
-        <ButtonFeedback type="button" onClick={this.hendleGoodFeedback}>
+        <ButtonFeedbackGood type="button" onClick={this.hendleGoodFeedback}>
           Good
-        </ButtonFeedback>
+        </ButtonFeedbackGood>
         <ButtonFeedback type="button" onClick={this.hendleNeutalFeedback}>
           Neutral
         </ButtonFeedback>
-        <ButtonFeedback type="button" onClick={this.hendleBadFeedback}>
+        <ButtonFeedback primary type="button" onClick={this.hendleBadFeedback}>
           Bad
         </ButtonFeedback>
 
         <h2>Statistics</h2>
-        <p>Good: {this.state.good}</p>
-        <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bad}</p>
-        <p>Total Feedback: {this.totalFeedback()}</p>
-        <p>Positive feedback: {this.positiveFeedback()} %</p>
+        <p>
+          Good: <FeedbackSpan> {this.state.good} </FeedbackSpan>
+        </p>
+        <p>
+          Neutral: <FeedbackSpan> {this.state.neutral}</FeedbackSpan>
+        </p>
+        <p>
+          Bad: <FeedbackSpan>{this.state.bad} </FeedbackSpan>
+        </p>
+        <p>
+          Total Feedback: <FeedbackSpan>{this.totalFeedback()} </FeedbackSpan>
+        </p>
+        <p>
+          Positive feedback:{' '}
+          <FeedbackSpan>{this.positiveFeedback()} % </FeedbackSpan>
+        </p>
       </FeedbackDiv>
     );
   }
