@@ -1,8 +1,6 @@
 import React from 'react';
-import Feedback from './feedback/Feedback';
+import Section from './feedback/Section';
 
 export const App = () => {
-  return (
-      <Feedback/>
-  );
+  return <Section title="Please leave feedback" />;
 };
