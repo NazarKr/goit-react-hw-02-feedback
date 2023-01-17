@@ -1,8 +1,16 @@
 import React from 'react';
 import { FeedbackSpan } from './feedback.styled';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
+const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+  title,
+}) => (
   <div>
+    {title && <h2>{title}</h2>} 
     <p>
       Good: <FeedbackSpan>{good}</FeedbackSpan>
     </p>

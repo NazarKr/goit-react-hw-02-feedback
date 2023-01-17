@@ -10,32 +10,6 @@ export const FeedbackDiv = styled.div`
   box-shadow: 0px 0px 20px -18px;
 `;
 
-export const ButtonFeedbackGood = styled.button`
-  width: fit-content;
-  min-width: 100px;
-  height: 40px;
-  padding: 8px;
-  margin: 6px;
-  border-radius: 5px;
-  border: 2.5px solid #e0e1e4;
-  box-shadow: 0px 0px 20px -20px;
-  cursor: pointer;
-  color: green;
-  background-color: white;
-  transition: all 0.2s ease-in-out 0ms;
-  user-select: none;
-  font-family: 'Poppins', sans-serif;
-
-  &:hover {
-    background-color: #f2f2f2;
-    box-shadow: 0px 0px 20px -18px;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-`;
-
 export const ButtonFeedback = styled.button`
     width: fit-content;
     min-width: 100px;
@@ -46,8 +20,6 @@ export const ButtonFeedback = styled.button`
     border: 2.5px solid #e0e1e4;
     box-shadow: 0px 0px 20px -20px;
     cursor: pointer;
-      color: ${colorFeedback =>
-        colorFeedback.primary ? 'red' : 'blue' };
     background-color: white;
     transition: all 0.2s ease-in-out 0ms;
     user-select: none;
