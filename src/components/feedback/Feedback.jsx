@@ -32,25 +32,31 @@ class Feedback extends Component {
   //     }));
   //   };
 
-  onLeaveFeedback = e => {
-    if (e.target.innerText === 'good') {
-      this.setState(prevState => ({
-        good: prevState.good + 1,
-      }));
-    }
+  // onLeaveFeedback = e => {
+  //   if (e.target.innerText === 'good') {
+  //     this.setState(prevState => ({
+  //       good: prevState.good + 1,
+  //     }));
+  //   }
 
-    if (e.target.innerText === 'neutral') {
-      this.setState(prevState => ({
-        neutral: prevState.neutral + 1,
-      }));
-    }
+  //   if (e.target.innerText === 'neutral') {
+  //     this.setState(prevState => ({
+  //       neutral: prevState.neutral + 1,
+  //     }));
+  //   }
 
-    if (e.target.innerText === 'bad') {
-      this.setState(prevState => ({
-        bad: prevState.bad + 1,
-      }));
-    }
-  };
+  //   if (e.target.innerText === 'bad') {
+  //     this.setState(prevState => ({
+  //       bad: prevState.bad + 1,
+  //     }));
+  //   }
+  // };
+
+  onLeaveFeedback = name => {
+    this.setState(prevState => {
+      return {[name]: prevState[name] +1}
+    })
+  }
 
   totalFeedback = () => {
     const total = this.state.good + this.state.neutral + this.state.bad;
