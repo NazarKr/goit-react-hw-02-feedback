@@ -9,7 +9,7 @@ const Statistics = ({
   positivePercentage,
   title,
 }) => (
-  <div>
+  <>
     {title && <h3>{title}</h3>} 
     <FeedbeckText>
       Good: <FeedbackSpan>{good}</FeedbackSpan>
@@ -26,7 +26,7 @@ const Statistics = ({
     <FeedbeckText>
       Positive feedback: <FeedbackSpan>{positivePercentage} % </FeedbackSpan>
     </FeedbeckText>
-  </div>
+  </>
 );
 
 export default Statistics;
