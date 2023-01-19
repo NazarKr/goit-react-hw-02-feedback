@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeedbackSpan } from './feedback.styled';
+import { FeedbeckText, FeedbackSpan } from './feedback.styled';
 
 const Statistics = ({
   good,
@@ -10,22 +10,22 @@ const Statistics = ({
   title,
 }) => (
   <div>
-    {title && <h2>{title}</h2>} 
-    <p>
+    {title && <h3>{title}</h3>} 
+    <FeedbeckText>
       Good: <FeedbackSpan>{good}</FeedbackSpan>
-    </p>
-    <p>
+    </FeedbeckText>
+    <FeedbeckText>
       Neutral: <FeedbackSpan>{neutral}</FeedbackSpan>
-    </p>
-    <p>
+    </FeedbeckText>
+    <FeedbeckText>
       Bad: <FeedbackSpan>{bad}</FeedbackSpan>
-    </p>
-    <p>
+    </FeedbeckText>
+    <FeedbeckText>
       Total Feedback: <FeedbackSpan>{total} </FeedbackSpan>
-    </p>
-    <p>
+    </FeedbeckText>
+    <FeedbeckText>
       Positive feedback: <FeedbackSpan>{positivePercentage} % </FeedbackSpan>
-    </p>
+    </FeedbeckText>
   </div>
 );
 

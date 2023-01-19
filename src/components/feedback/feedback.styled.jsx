@@ -1,7 +1,24 @@
 import styled from '@emotion/styled';
 
+export const TitleH2 = styled.h2`
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+`;
+
+export const TitleH3 = styled.h2`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+export const FeedbeckText = styled.p`
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+`;
+
 export const FeedbackDiv = styled.div`
-  width: 360px;
+  width: 340px;
   margin-top: 20px;
   padding: 10px;
   margin-left: auto;
