@@ -4,6 +4,7 @@ import FeedbackOptions from './ButtonsComponents';
 import Statistics from './Statistics';
 import Section from './Section'
 import Notification from './Notification'
+import PropTypes from 'prop-types';
 
 class Feedback extends Component {
   state = {
@@ -54,7 +55,7 @@ class Feedback extends Component {
 
   onLeaveFeedback = name => {
     this.setState(prevState => {
-      return {[name]: prevState[name] +1}
+      return { [name]: prevState[name] + 1 }
     })
   }
 
@@ -66,12 +67,10 @@ class Feedback extends Component {
   positiveFeedback = () => {
     const positive = Math.round(
       (this.state.good * 100) /
-        (this.state.good + this.state.neutral + this.state.bad)
+      (this.state.good + this.state.neutral + this.state.bad)
     );
     return positive || '';
   };
-
-  
 
   render() {
     return (
@@ -95,11 +94,19 @@ class Feedback extends Component {
           </Section>
         )}
 
-        {this.totalFeedback() === 0 && 
-        <Notification message="There is no feedback"/>}
+        {this.totalFeedback() === 0 &&
+          <Notification message="There is no feedback" />}
       </FeedbackDiv>
     );
   }
 }
 
 export default Feedback;
+
+Feedback.propTypes = {
+  state: PropTypes.arrayOf(PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  })),
+}
